@@ -41,8 +41,10 @@ public class MyLibrary {
 // ==================================================== Собственно - для тестов ========================================
 
     public static void OpenBrowser() {
-        // Browser running
-        System.setProperty("webdriver.chrome.driver", "C:/Automation/WebDrivers/chromedriver.exe");
+        // Browser running (for starting from IDEA)
+        // System.setProperty("webdriver.chrome.driver", "C:/Automation/WebDrivers/chromedriver.exe");
+        // Browser running (for starting from drone.io)
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         // Работаем  опциями Хрома
         ChromeOptions Options = new ChromeOptions();
         // Запускаем Хром на английском языке
