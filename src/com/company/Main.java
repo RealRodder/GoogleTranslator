@@ -100,7 +100,7 @@ public class Main {
     @Test
     public void Test05_ThreeLanguagesTest () {
         Assert.assertTrue ("Maltian language testing...", MyLibrary.LanguageTesting("Maltese"));
-        Assert.assertTrue ("Greek language testing...", MyLibrary.LanguageTesting("GreekZZZ"));
+        Assert.assertTrue ("Greek language testing...", MyLibrary.LanguageTesting("Greek"));
         Assert.assertTrue ("Slovak language testing...", MyLibrary.LanguageTesting("Slovak"));
     }
 
