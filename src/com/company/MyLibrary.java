@@ -15,7 +15,7 @@ public class MyLibrary {
     public static WebDriver Browser;
     public static WebElement Element;
 
-// ==================================================== Внутренний набор функций========================================
+// ==================================================== Р’РЅСѓС‚СЂРµРЅРЅРёР№ РЅР°Р±РѕСЂ С„СѓРЅРєС†РёР№========================================
 
     public static boolean WaitForElement (int WaitTime, String WFEString) {
         // WaitTime - in seconds
@@ -38,14 +38,14 @@ public class MyLibrary {
         return TmpBoolean;
     }
 
-// ==================================================== Собственно - для тестов ========================================
+// ==================================================== РЎРѕР±СЃС‚РІРµРЅРЅРѕ - РґР»СЏ С‚РµСЃС‚РѕРІ ========================================
 
     public static void OpenBrowser() {
         // Browser running
         System.setProperty("webdriver.chrome.driver", "C:/Automation/WebDrivers/chromedriver.exe");
-        // Работаем  опциями Хрома
+        // Р Р°Р±РѕС‚Р°РµРј  РѕРїС†РёСЏРјРё РҐСЂРѕРјР°
         ChromeOptions Options = new ChromeOptions();
-        // Запускаем Хром на английском языке
+        // Р—Р°РїСѓСЃРєР°РµРј РҐСЂРѕРј РЅР° Р°РЅРіР»РёР№СЃРєРѕРј СЏР·С‹РєРµ
         Options.addArguments("--lang=en");
         Browser = new ChromeDriver(Options);
         // Browser = new FirefoxDriver();
@@ -62,11 +62,11 @@ public class MyLibrary {
 
     public static boolean EmptyResult() {
         boolean TmpBoolean = false;
-        // 01. Открыть, нажать "Translate"...
+        // 01. РћС‚РєСЂС‹С‚СЊ, РЅР°Р¶Р°С‚СЊ "Translate"...
         Browser.findElement(By.xpath("//*[@id=\"gt-submit\"]")).click();
         // Waiting for translation
         WaitForElement (10, "//*[@id=\"result_box\"]");
-        // ...проверить, что результат пустой.
+        // ...РїСЂРѕРІРµСЂРёС‚СЊ, С‡С‚Рѕ СЂРµР·СѓР»СЊС‚Р°С‚ РїСѓСЃС‚РѕР№.
         if (Browser.findElement(By.xpath("//*[@id=\"result_box\"]")).getText().length() == 0) {
             TmpBoolean = true;
         }
@@ -106,12 +106,12 @@ public class MyLibrary {
 
     public static boolean LanguageTesting (String LTString) {
         boolean TmpBoolean = false;
-        // Жмём кнопку первый раз - "нажимаем"
+        // Р–РјС‘Рј РєРЅРѕРїРєСѓ РїРµСЂРІС‹Р№ СЂР°Р· - "РЅР°Р¶РёРјР°РµРј"
         Browser.findElement(By.xpath("//*[@id=\"gt-sl-gms\"]")).click();
         if (Browser.findElement(By.id("gt-sl-gms-menu")).getText().contains(LTString)) {
             TmpBoolean = true;
         }
-        // Жмём кнопку второй раз - "отпускаем"
+        // Р–РјС‘Рј РєРЅРѕРїРєСѓ РІС‚РѕСЂРѕР№ СЂР°Р· - "РѕС‚РїСѓСЃРєР°РµРј"
         Browser.findElement(By.xpath("//*[@id=\"gt-sl-gms\"]")).click();
         return TmpBoolean;
     }
@@ -158,7 +158,7 @@ public class MyLibrary {
     }
 
     public static boolean HelloCrossEmpty (String WordIn) {
-        // Вводим слева "hello", нажимаем "x" и проверяем, что слева и справа стало пусто.
+        // Р’РІРѕРґРёРј СЃР»РµРІР° "hello", РЅР°Р¶РёРјР°РµРј "x" Рё РїСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ СЃР»РµРІР° Рё СЃРїСЂР°РІР° СЃС‚Р°Р»Рѕ РїСѓСЃС‚Рѕ.
         boolean TmpBoolean = false;
         // Input word in left field
         Browser.findElement(By.xpath("//*[@id=\"source\"]")).sendKeys(WordIn);
@@ -166,7 +166,7 @@ public class MyLibrary {
         Browser.findElement(By.xpath("//*[@id=\"gt-clear\"]/span")).click();
         // Waiting for for translation appearing
         WaitForElement(10, "//*[@id=\"result_box\"]");
-        // ...проверить, что результат пустой.
+        // ...РїСЂРѕРІРµСЂРёС‚СЊ, С‡С‚Рѕ СЂРµР·СѓР»СЊС‚Р°С‚ РїСѓСЃС‚РѕР№.
         if (Browser.findElement(By.xpath("//*[@id=\"result_box\"]")).getText().length() == 0) {
             TmpBoolean = true;
         }
